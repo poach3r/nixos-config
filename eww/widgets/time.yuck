@@ -1,0 +1,17 @@
+(defpoll exactTime :interval "1s" 'date +%I:%M')
+(defpoll date :interval "1m" 'date +%m/%d/%y')
+
+(defwidget time []
+  (eventbox :onhover "eww update time=true"
+    :onhoverlost "eww update time=false" 
+  (box :orientation "h"					
+    :space-evenly "false" 	 
+  (revealer :transition "slideleft"				
+    :reveal time			 
+    :duration "550ms"
+  (label :class "time"
+    :text "${date}"
+    :space-evenly "false"))
+  (label :class "time"
+    :text "${exactTime}"))))
+(defvar time false)

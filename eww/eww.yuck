@@ -1,0 +1,69 @@
+(defpoll workspaces :interval ".1s"
+                    :initial "[]"
+                    "./scripts/workspace.sh")    
+(include "./widgets/sound.yuck")
+(include "./widgets/bat.yuck")
+(include "./widgets/power.yuck")
+(include "./widgets/time.yuck")
+(include "./widgets/weather.yuck")
+(include "./widgets/music-dropdown.yuck")
+(include "./widgets/launcher.yuck")
+(include "./widgets/apps.yuck")
+
+(defwindow bar
+           :monitor 0
+           :geometry (geometry  :x 0
+                                :y 0
+                                :width "100%"
+                                :height "20px"
+                                :anchor "top center")
+           :stacking "fg"
+           :exclusive true
+  (bar))
+
+(defwidget bar []
+  (centerbox :orientation "horizontal"
+   (left-bar)
+   (center-bar)
+   (right-bar)))
+
+(defwidget div []
+  (label :text "|"
+    :class "div"))
+
+(defwidget left-bar []
+    (box :orientation "horizontal"
+         :class "left-bar"
+         :halign "start"
+         :valign "center"
+     (launcher)
+     (for workspace in workspaces
+        (button :class { workspace.focused ? "active-workspace" : "inactive-workspace"}
+          ""))))
+
+
+(defwidget right-bar []
+ (box :orientation "horizontal"
+      :halign "end"
+      :class "right-bar"
+      :valign "center"
+      :space-evenly false
+   (volume-widget)
+   (input-volume-widget)
+   (div)
+   (bat)
+   (div)
+   (weather)
+   (time)
+   (div)
+   (power)))
+
+(defwidget center-bar []
+  (box :orientation "horizontal"
+       :class "center-bar"
+       :halign "center"
+       :valign "center"
+       :space-evenly false
+   (apps1)
+   (music-player)
+   (apps2)))
