@@ -1,6 +1,0 @@
-(defwidget launcher []
-  (button :class "launcher"
-    :timeout "1000s"
-    :onclick "rofi -no-config -no-lazy-grab -show drun -modi drun -theme /nix/store/f5j3r8j43n06ya3mnvmiswzgc6cbnh6w-rofi/catppuccin-macchiato.rasi
-" ""))
-
