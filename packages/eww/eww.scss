@@ -70,7 +70,7 @@ scale trough highlight {
 }
 
 .right-bar {
-  background-color: $mantle;
+  background-color: $base;
   border-radius: 0px 0px 0px 20px;
   label {
     margin: 0px 5px 0px 5px;
@@ -78,7 +78,7 @@ scale trough highlight {
 }
 
 .left-bar {
-  background-color: $mantle;
+  background-color: $base;
   border-radius: 0px 0px 20px 0px;
   label {
     margin: 0px 5px 0px 0px;
@@ -86,7 +86,7 @@ scale trough highlight {
 }
 
 .center-bar {
-  background-color: $mantle;
+  background-color: $base;
   border-radius: 0px 0px 20px 20px;
   label {
     margin: 0px 5px 0px 5px;
@@ -97,8 +97,8 @@ scale trough highlight {
 }
 
 .power {
-  color: $red;
-  background-color: $base;
+  background-color: $red;
+  color: $base;
   border-radius: 0px 0px 0px 20px;
 }
 
@@ -124,7 +124,6 @@ scale trough highlight {
 
 .mic {
   color: $peach;
-
 }
 
 .div {
@@ -132,17 +131,20 @@ scale trough highlight {
 }
 
 .active-workspace {
-  color: $muave
+  color: $muave;
 }
 
 .inactive-workspace {
-  color: $text
+  color: $text;
 }
 
 .launcher {
-  color: $blue;
-  background-color: $base;
+  color: $base;
+  background-color: $blue;
   border-radius: 0px 0px 20px 0px;
+}
+
+.app {
 }
 
 window {

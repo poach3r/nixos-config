@@ -1,3 +1,12 @@
+(deflisten current-song :initial ""
+  "./center/scripts/music.sh current-song")
+
+(deflisten prog :initial '0'
+  "./center/scripts/music.sh progress")
+
+(deflisten current-song-image :initial ""
+  "./center/scripts/music.sh image")
+
 (defwindow music-dropdown
   :monitor 0
   :geometry (geometry :x 0
@@ -44,16 +53,8 @@
            :class "music-dropdown-seek"
            :value prog)))
 
-(deflisten current-song :initial ""
-  "./scripts/music.sh current-song")
-
-(deflisten prog :initial '0'
-  "./scripts/music.sh progress")
-
-(deflisten current-song-image :initial ""
-  "./scripts/music.sh image")
 
 (defwidget music-player []
-  (eventbox :onclick "eww open -c . music-dropdown"
+  (eventbox :onhover "eww open -c . music-dropdown"
     :class "active-song" 
     "${current-song}"))

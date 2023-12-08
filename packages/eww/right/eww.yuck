@@ -1,0 +1,25 @@
+(include "./right/widgets/sound.yuck")
+(include "./right/widgets/bat.yuck")
+(include "./right/widgets/power.yuck")
+(include "./right/widgets/time.yuck")
+(include "./right/widgets/weather.yuck")
+(include "./right/widgets/div.yuck")
+
+(defwidget right-bar []
+  (box 
+    :orientation "horizontal"
+    :halign "end"
+    :class "right-bar"
+    :valign "center"
+    :space-evenly false
+    (volume-widget)
+    (input-volume-widget)
+    (div)
+    (bat)
+    (div)
+    (weather)
+    (time)
+    (div)
+    (power)
+  )
+)

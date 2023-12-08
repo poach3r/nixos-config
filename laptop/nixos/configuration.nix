@@ -1,7 +1,7 @@
 { inputs, config, pkgs, ... }:
 
 {
-  # Systemd-Boot
+  # systemd-boot
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -27,6 +27,8 @@
     enable = false;
     powerOnBoot = false;
   };
+
+  # home-manager.users.poacher = import ../home-manager/home.nix;
 
   system.stateVersion = "23.05";
 }

@@ -1,6 +1,8 @@
 { inputs, config, pkgs, ... }:
 
 {
+  # home-manager.users.poacher = import ../home-manager/home.nix;
+
   nix = {
     optimise.automatic = true;
     package = pkgs.nixFlakes;
@@ -32,7 +34,7 @@
     enable = true;
     displayManager.sddm = {
       enable = true;
-      theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+      theme = "${import ../../packages/sddm-theme.nix { inherit pkgs; }}";
     };
   };
 

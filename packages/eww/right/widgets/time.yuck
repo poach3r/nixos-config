@@ -2,8 +2,8 @@
 (defpoll date :interval "1m" 'date +%m/%d/%y')
 
 (defwidget time []
-  (eventbox :onhover "eww update time=true"
-    :onhoverlost "eww update time=false" 
+  (eventbox :onhover "eww update time=true -c ."
+    :onhoverlost "eww update time=false -c ." 
   (box :orientation "h"					
     :space-evenly "false" 	 
   (revealer :transition "slideleft"				

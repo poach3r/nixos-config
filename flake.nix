@@ -4,20 +4,23 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
     };
+
+    nixvim.url = "github:nix-community/nixvim";
+
+    ags.url = "github:Aylur/ags";
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs: 
+  outputs = { nixpkgs, home-manager, nixvim, ags, ... } @ inputs: 
   let 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -49,6 +52,8 @@
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         modules = [
+          nixvim.homeManagerModules.nixvim
+          ags.homeManagerModules.default
           ./universal/home-manager/home.nix
           ./laptop/home-manager/home.nix
         ];

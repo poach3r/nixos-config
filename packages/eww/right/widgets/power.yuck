@@ -1,0 +1,41 @@
+(defvar power false)
+
+(defwidget power []
+  (eventbox 
+    :onhover "eww update power=true -c ."
+    :onhoverlost "eww update power=false -c ." 
+    (box 
+      :orientation "h"					
+      :space-evenly "false" 	 
+      (revealer 
+        :transition "slideleft"				
+        :reveal power			 
+        :duration "550ms"
+        (box 
+          :orientation "h"					
+          :space-evenly "false"
+          (button 
+            :class "power2"					
+            :tooltip "Reboot"		 
+            :onclick "reboot" "󰤁"
+          )
+          (button 
+            :class "power2" 				
+            :tooltip "Logout" 		 
+            :onclick "pkill -kill -u $USER" "󰍃"
+          )
+          (button 
+            :class "power2" 				
+            :tooltip "Lock Screen"	 
+            :onclick "betterlockscreen -l" ""
+          )
+        )
+      )
+      (button 
+        :class "power"
+        :tooltip "Shutdown"		 
+        :onclick "shutdown now" "⏻"
+      )
+    )
+  )
+)

@@ -1,9 +1,9 @@
-(defpoll batperc :interval "1m" 'scripts/battery.sh --perc')
-(defpoll baticon :interval "1m" `scripts/battery.sh --icon`)
+(defpoll batperc :interval "1m" './right/scripts/battery.sh --perc')
+(defpoll baticon :interval "1m" `./right/scripts/battery.sh --icon`)
 
 (defwidget bat []
-  (eventbox :onhover "eww update bat=true"
-    :onhoverlost "eww update bat=false" 
+  (eventbox :onhover "eww update bat=true -c ."
+    :onhoverlost "eww update bat=false -c ." 
   (box :orientation "h"					
     :space-evenly "false" 	 
   (revealer :transition "slideleft"				
