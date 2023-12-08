@@ -7,10 +7,10 @@ pkgs.stdenv.mkDerivation {
     sparseCheckout = [
       "packages/rofi/"
     ];
-    hash = "";
+    hash = "sha256-VYOHQjmNK1NA76OIyNQtlqbiw+K+g2FAqbMwQpN1VVI=";
   };
   installPhase = ''
   mkdir -p $out
-  mv ./packages/rofi $out
+  mv ./packages/rofi/* $out
   '';
 }
