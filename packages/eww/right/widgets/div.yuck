@@ -1,0 +1,6 @@
+(defwidget div []
+  (label 
+    :text "|"
+    :class "div"
+  )
+)

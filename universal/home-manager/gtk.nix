@@ -1,5 +1,3 @@
-# Currently non-functional
-
 { pkgs, ... }:
 
 {

@@ -2,8 +2,14 @@
 
 {
   boot.loader = {
-    grub.enable = true;
-    grub.device = "/dev/sda";
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    grub = {
+      efiSupport = true;
+      enable = true;
+      device = "/dev/sda";
+    };
   };
 
   # System Packages

@@ -1,0 +1,22 @@
+(defpoll workspaces 
+  :interval ".1s"
+  :initial "[]"
+  "./left/scripts/workspace.sh"
+)
+
+(include "./left/widgets/launcher.yuck")
+
+(defwidget left-bar []
+  (box 
+    :orientation "horizontal"
+    :class "left-bar"
+    :halign "start"
+    :valign "center"
+    (launcher)
+    (for workspace in workspaces
+      (button :class { workspace.focused ? "active-workspace" : "inactive-workspace"}
+        ""
+      )
+    )
+  )
+)

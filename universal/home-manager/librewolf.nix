@@ -6,8 +6,6 @@
     librewolf-wayland
   ];
 
-  home.file.".librewolf/native-messaging-hosts/passff.json".source = "${pkgs.passff-host}/share/passff-host/passff.json";
-  
   programs.librewolf = {
     enable = true;
     settings = {

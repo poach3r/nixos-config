@@ -1,35 +1,35 @@
 { inputs, pkgs, ... }:
 
 let
-wallpapers = pkgs.stdenv.mkDerivation {
-    name = "wallpapers";
-    src = pkgs.fetchgit {
-      url = "https://github.com/Gingeh/wallpapers";
-      sparseCheckout = [
-	"landscapes/"
-      ];
-      hash = "sha256-7Odz2khtWFXI60vHGP/3A5BmvazPO3yvQbML+IHRgSQ=";
-    };
-    installPhase = ''
-    mkdir -p $out
-    mv * $out
-    '';
+rofi = pkgs.stdenv.mkDerivation {
+  name = "rofi";
+  src = pkgs.fetchgit {
+    url = "https://github.com/catppuccin/rofi";
+    sparseCheckout = [
+      "basic/.local/"
+    ];
+    hash = "sha256-VoBVygZSSiqqtdO1WzCzA6lfE2Nl2yCFCpLjTo0QhxY=";
   };
+  installPhase = ''
+  mkdir -p $out
+  mv ./basic/.local/share/rofi/themes/* $out
+  '';
+};
 
-  rofi = pkgs.stdenv.mkDerivation {
-    name = "rofi";
-    src = pkgs.fetchgit {
-      url = "https://github.com/catppuccin/rofi";
-      sparseCheckout = [
-	"basic/.local/"
-      ];
-      hash = "sha256-VoBVygZSSiqqtdO1WzCzA6lfE2Nl2yCFCpLjTo0QhxY=";
-    };
-    installPhase = ''
-    mkdir -p $out
-    mv ./basic/.local/share/rofi/themes/* $out
-    '';
+wallpapers = pkgs.stdenv.mkDerivation {
+  name = "wallpapers";
+  src = pkgs.fetchgit {
+    url = "https://github.com/Gingeh/wallpapers";
+    sparseCheckout = [
+      "landscapes/"
+    ];
+    hash = "sha256-7Odz2khtWFXI60vHGP/3A5BmvazPO3yvQbML+IHRgSQ=";
   };
+  installPhase = ''
+  mkdir -p $out
+  mv * $out
+  '';
+};
 in {
   home.packages = with pkgs; [
     wbg
@@ -47,7 +47,7 @@ in {
     # Autostart
     exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
     exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-    exec = eww open bar
+    exec = dcnnt start
     exec = wbg ${wallpapers}/landscapes/evening-sky.png
 
     # Input config
@@ -151,6 +151,6 @@ in {
      bind = $mainMod, mouse_up, workspace, e-1
      bindm = $mainMod, mouse:272, movewindow
      bindm = $mainMod, mouse:273, resizewindow
-     '';
-   };
- }
+    '';
+  };
+}

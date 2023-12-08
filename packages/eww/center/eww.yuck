@@ -1,0 +1,15 @@
+(include "./center/widgets/apps.yuck")
+(include "./center/widgets/music-dropdown.yuck")
+
+(defwidget center-bar []
+  (box 
+    :orientation "horizontal"
+    :class "center-bar"
+    :halign "center"
+    :valign "center"
+    :space-evenly false
+    (apps1)
+    (music-player)
+    (apps2)
+  )
+)

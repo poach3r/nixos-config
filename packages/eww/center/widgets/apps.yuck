@@ -1,0 +1,54 @@
+(defwidget apps1 []
+  (box 
+    :orientation "h"					
+    :space-evenly "true"
+    (overlay
+      (button 
+        :class "app"	
+        :timeout "10000s"
+        :onclick "librewolf"
+      )
+      (image 
+        :path "./center/assets/librewolf.svg"
+      )
+    )
+    (overlay
+      (button 
+        :class "app" 
+        :timeout "10000s"
+        :onclick "alacritty"
+      )
+      (image 
+        :path "./center/assets/alacritty.svg"
+      )
+    )
+  )
+)
+
+(defwidget apps2 []
+  (box 
+    :orientation "h"					
+    :space-evenly "false"
+    (overlay
+      (button 
+        :class "app" 
+        :timeout "10000s"
+        :onclick "thunar"
+      )
+      (image 
+        :path "./center/assets/thunar.svg"
+      )
+    )
+    (overlay
+      (button 
+        :class "app" 
+        :timeout "10000s"
+        :onclick "steam"
+      )
+      (image 
+        :path "./center/assets/steam.svg"
+      )
+    )
+  )
+)
+

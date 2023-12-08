@@ -7,6 +7,8 @@
     lutgen
     pfetch
     direnv
+    lazygit
+    gh
   ];
   
   programs.alacritty = {
