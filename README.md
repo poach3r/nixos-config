@@ -15,6 +15,7 @@ nixos-config     | The base directory, I put it in my home directory
 --packages       | Various things not configured in home-manager/not in nixpkgs (ie shell scripts)
 
 ----nixos        | My NixOS config
+
 ----home-manager | My home-manager config
 
 # TODO
