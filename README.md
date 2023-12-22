@@ -5,10 +5,15 @@ My (hopefully) final NixOS config, now with flakes!
 # File Structure
 
 nixos-config     | The base directory, I put it in my home directory
+
 --universal      | Configs that apply both the desktop and laptop configs
+
 --desktop        | Configs that only apply to the desktop config (ie Steam)
+
 --laptop         | Configs that only apply to the laptop config (ie battery optimization)
+
 --packages       | Various things not configured in home-manager/not in nixpkgs (ie shell scripts)
+
 ----nixos        | My NixOS config
 ----home-manager | My home-manager config
 
